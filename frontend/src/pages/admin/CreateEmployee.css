@@ -1,0 +1,646 @@
+/* ============================================================
+   CREATE EMPLOYEE
+   Compact Gradient Card Design
+============================================================ */
+
+.create-employee-page {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 90% 5%,
+            rgba(104, 71, 235, 0.07),
+            transparent 26%
+        ),
+        var(--bg-page);
+
+    color: var(--text-primary);
+}
+
+
+/* ============================================================
+   CONTENT
+============================================================ */
+
+.create-employee-content {
+    width: 100%;
+
+    padding: 28px 30px 42px;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   SHELL
+   Header + form become one compact card.
+============================================================ */
+
+.create-employee-shell {
+    width: min(100%, 760px);
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    border-radius: 13px;
+
+    background: var(--bg-primary);
+
+    border: 1px solid var(--border-color);
+
+    box-shadow:
+        0 12px 30px rgba(31, 41, 55, 0.08);
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* ============================================================
+   GRADIENT HEADER
+============================================================ */
+
+.create-employee-header {
+    position: relative;
+
+    min-height: 92px;
+
+    padding: 16px 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 82% 0%,
+            rgba(255, 255, 255, 0.15),
+            transparent 25%
+        ),
+        linear-gradient(
+            105deg,
+            #4b24f5 0%,
+            #7528ed 38%,
+            #a82bcf 70%,
+            #dd2ba9 100%
+        );
+
+    color: #ffffff;
+}
+
+
+/* Decorative glow */
+
+.create-employee-header::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 110px;
+
+    right: 18px;
+    top: -75px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.17),
+            transparent 68%
+        );
+
+    pointer-events: none;
+}
+
+
+/* Decorative diagonal */
+
+.create-employee-header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 100px;
+
+    right: 95px;
+    top: -68px;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 0 46%,
+            rgba(255, 255, 255, 0.08) 47% 65%,
+            transparent 66%
+        );
+
+    transform: rotate(7deg);
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   HEADER ICON
+============================================================ */
+
+.create-employee-header-icon {
+    position: relative;
+
+    z-index: 2;
+
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    color: #ffffff;
+
+    font-size: 19px;
+
+    box-shadow:
+        0 7px 18px rgba(49, 13, 122, 0.14);
+}
+
+
+/* ============================================================
+   HEADER TEXT
+============================================================ */
+
+.create-employee-header-text {
+    position: relative;
+
+    z-index: 2;
+
+    min-width: 0;
+}
+
+.create-employee-header h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    line-height: 1.15;
+
+    font-weight: 700;
+
+    letter-spacing: -0.25px;
+}
+
+.create-employee-header p {
+    margin: 4px 0 0;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    font-size: 9px;
+
+    line-height: 1.3;
+}
+
+
+/* ============================================================
+   FORM CARD
+============================================================ */
+
+.create-employee-card {
+    width: 100%;
+
+    max-width: none;
+
+    padding: 16px 18px 15px;
+
+    box-sizing: border-box;
+
+    background: var(--bg-primary);
+
+    border: 0;
+
+    border-radius: 0;
+
+    box-shadow: none;
+}
+
+
+/* ============================================================
+   MESSAGE
+============================================================ */
+
+.create-employee-card > .alert {
+    margin: 0 0 10px;
+
+    padding: 8px 10px;
+
+    border-radius: 7px;
+
+    font-size: 9px;
+}
+
+
+/* ============================================================
+   FORM
+============================================================ */
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--text-secondary);
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+}
+
+
+/* ============================================================
+   INPUT WRAPPER
+============================================================ */
+
+.input-wrapper,
+.select-wrapper {
+    position: relative;
+}
+
+
+/* ============================================================
+   INPUTS
+============================================================ */
+
+.input-wrapper input,
+.select-wrapper select {
+    width: 100%;
+
+    height: 32px;
+
+    box-sizing: border-box;
+
+    padding: 0 32px;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 6px;
+
+    background: var(--bg-secondary);
+
+    color: var(--text-primary);
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 8px;
+
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        background-color 0.18s ease;
+}
+
+.input-wrapper input::placeholder {
+    color: var(--text-muted);
+
+    opacity: 0.8;
+}
+
+.input-wrapper input:focus,
+.select-wrapper select:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 2px var(--primary-soft);
+
+    background: var(--bg-primary);
+}
+
+
+/* ============================================================
+   ICONS
+============================================================ */
+
+.input-icon,
+.select-icon {
+    position: absolute;
+
+    left: 10px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 2;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   PASSWORD TOGGLE
+============================================================ */
+
+.password-toggle {
+    position: absolute;
+
+    right: 8px;
+    top: 50%;
+
+    width: 24px;
+    height: 24px;
+
+    padding: 0;
+
+    transform: translateY(-50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+
+    border-radius: 5px;
+
+    background: transparent;
+
+    color: var(--text-muted);
+
+    cursor: pointer;
+
+    font-size: 10px;
+
+    z-index: 3;
+}
+
+.password-toggle:hover {
+    color: var(--primary);
+
+    background: var(--primary-soft);
+}
+
+
+/* ============================================================
+   ROLE SELECT
+============================================================ */
+
+.select-wrapper select {
+    padding-right: 30px;
+
+    appearance: none;
+
+    cursor: pointer;
+}
+
+.select-arrow {
+    position: absolute;
+
+    right: 10px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: var(--text-muted);
+
+    font-size: 9px;
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   DIVIDER
+============================================================ */
+
+.form-actions {
+    margin-top: 13px;
+
+    padding-top: 11px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 7px;
+
+    border-top: 1px solid var(--border-color);
+}
+
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+
+.form-actions button {
+    min-width: 76px;
+
+    height: 29px;
+
+    padding: 5px 11px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    border-radius: 6px;
+
+    font-family: inherit;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background-color 0.18s ease;
+}
+
+.form-actions button:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.form-actions button:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.65;
+}
+
+
+/* Cancel */
+
+.form-actions .btn-secondary {
+    background: var(--bg-secondary);
+
+    border: 1px solid var(--border-color);
+
+    color: var(--text-secondary);
+}
+
+.form-actions .btn-secondary:hover:not(:disabled) {
+    background: var(--bg-tertiary);
+
+    color: var(--text-primary);
+}
+
+
+/* Create */
+
+.form-actions .btn-primary {
+    min-width: 82px;
+
+    border: 0;
+
+    background:
+        linear-gradient(
+            105deg,
+            #6a31f5,
+            #dc29bb
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 5px 12px rgba(103, 45, 220, 0.18);
+}
+
+.form-actions .btn-primary:hover:not(:disabled) {
+    box-shadow:
+        0 7px 16px rgba(103, 45, 220, 0.28);
+}
+
+
+/* ============================================================
+   SPINNER
+============================================================ */
+
+.spinning {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ============================================================
+   DARK MODE
+============================================================ */
+
+[data-theme="dark"] .create-employee-page {
+    background:
+        radial-gradient(
+            circle at 90% 5%,
+            rgba(104, 71, 235, 0.08),
+            transparent 26%
+        ),
+        var(--bg-page);
+}
+
+[data-theme="dark"] .create-employee-shell {
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 700px) {
+
+    .create-employee-content {
+        padding: 16px 12px 30px;
+    }
+
+    .create-employee-shell {
+        width: 100%;
+
+        border-radius: 11px;
+    }
+
+    .create-employee-header {
+        min-height: 78px;
+
+        padding: 13px 14px;
+
+        gap: 9px;
+    }
+
+    .create-employee-header-icon {
+        width: 35px;
+        height: 35px;
+
+        flex-basis: 35px;
+
+        font-size: 16px;
+
+        border-radius: 8px;
+    }
+
+    .create-employee-header h2 {
+        font-size: 17px;
+    }
+
+    .create-employee-header p {
+        font-size: 8px;
+    }
+
+    .create-employee-card {
+        padding: 14px;
+    }
+
+    .form-actions {
+        flex-direction: row;
+    }
+
+    .form-actions button {
+        flex: 1;
+
+        min-width: 0;
+    }
+}

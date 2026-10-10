@@ -1,0 +1,71 @@
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.75);
+
+  z-index: 9999;
+}
+
+.loading-box {
+  background: #ffffff;
+
+  padding: 25px 35px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+  text-align: center;
+}
+
+.loading-spinner {
+  font-size: 32px;
+  color: #2563eb;
+
+  animation: spin 1s linear infinite;
+}
+
+.loading-box p {
+  margin: 12px 0 0;
+
+  color: #374151;
+
+  font-size: 14px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =====================================================
+   DARK THEME
+   ===================================================== */
+
+[data-theme="dark"] .loading-overlay {
+  background: rgba(2, 6, 23, 0.72);
+}
+
+[data-theme="dark"] .loading-box {
+  background: var(--bg-primary);
+  box-shadow: var(--shadow-lg);
+}
+
+[data-theme="dark"] .loading-spinner {
+  color: var(--primary);
+}
+
+[data-theme="dark"] .loading-box p {
+  color: var(--text-secondary);
+}

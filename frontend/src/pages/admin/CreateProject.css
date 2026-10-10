@@ -1,0 +1,1949 @@
+/* =========================================================
+   CREATE PROJECT PAGE
+   ========================================================= */
+
+.create-project-page {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 26px 45px;
+    box-sizing: border-box;
+
+    color: var(--text-primary);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.create-project-header {
+    position: relative;
+
+    min-height: 145px;
+
+    margin-bottom: 18px;
+    padding: 24px 30px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    border-radius: 17px;
+
+    background:
+        radial-gradient(
+            circle at 88% 0%,
+            rgba(255,255,255,.16),
+            transparent 27%
+        ),
+        linear-gradient(
+            105deg,
+            #4b24f5 0%,
+            #7528ed 38%,
+            #aa2dd2 70%,
+            #df2baa 100%
+        );
+
+    box-shadow:
+        0 12px 30px rgba(76,29,149,.13);
+}
+
+
+/* Header decorative shapes */
+
+.create-project-header::before {
+    content: "";
+
+    position: absolute;
+
+    width: 270px;
+    height: 190px;
+
+    right: 5%;
+    top: -125px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.08);
+}
+
+
+.create-project-header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 330px;
+    height: 190px;
+
+    right: -30px;
+    top: -100px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(255,255,255,.08);
+}
+
+
+.create-project-header > div {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.create-project-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    margin-bottom: 13px;
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: rgba(255,255,255,.82);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        color .15s ease,
+        transform .15s ease;
+}
+
+
+.create-project-back:hover {
+    color: #ffffff;
+    transform: translateX(-2px);
+}
+
+
+.create-project-back i {
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   HEADER TEXT
+   ========================================================= */
+
+.create-project-header h2 {
+    margin: 0;
+
+    color: #ffffff !important;
+
+    font-size: 29px;
+    font-weight: 700;
+
+    line-height: 1.1;
+}
+
+
+.create-project-header p {
+    margin: 7px 0 0;
+
+    color: rgba(255,255,255,.88) !important;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   ALERTS
+   ========================================================= */
+
+.create-project-alert {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 18px;
+    padding: 11px 14px;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+}
+
+
+.create-project-alert.error {
+    border: 1px solid #fecaca;
+
+    background: #fef2f2;
+
+    color: #b91c1c;
+}
+
+
+.create-project-alert.success {
+    border: 1px solid #bbf7d0;
+
+    background: #f0fdf4;
+
+    color: #15803d;
+}
+
+
+.create-project-alert i {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   MAIN FORM CARD
+   ========================================================= */
+
+.create-project-card {
+    width: 100%;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #dce3ec;
+
+    border-radius: 13px;
+
+    box-shadow:
+        0 5px 18px rgba(15,23,42,.045);
+}
+
+
+/* =========================================================
+   FORM SECTION
+   ========================================================= */
+
+.create-project-section {
+    padding: 24px 25px;
+
+    border-bottom:
+        1px solid #e5eaf0;
+}
+
+
+.create-project-section:last-of-type {
+    border-bottom: 0;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.create-project-section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 22px;
+}
+
+
+.create-project-section-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    font-size: 17px;
+}
+
+
+.create-project-section-icon.members {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+
+.create-project-section-header h3 {
+    margin: 0;
+
+    color: #111827;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+.create-project-section-header p {
+    margin: 4px 0 0;
+
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   FIELDS
+   ========================================================= */
+
+.create-project-fields {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 22px;
+}
+
+
+.create-project-field {
+    min-width: 0;
+}
+
+
+.create-project-field label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #334155;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+.create-project-field label span {
+    margin-left: 3px;
+
+    color: #ef4444;
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.create-project-input-wrapper {
+    position: relative;
+}
+
+
+.create-project-input-wrapper i {
+    position: absolute;
+
+    left: 13px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    pointer-events: none;
+}
+
+
+.create-project-input-wrapper input {
+    width: 100%;
+
+    min-height: 43px;
+
+    box-sizing: border-box;
+
+    padding: 0 13px 0 38px;
+
+    border:
+        1px solid #d9e1ea;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #1f2937;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    transition:
+        border-color .15s ease,
+        box-shadow .15s ease,
+        background .15s ease;
+}
+
+
+.create-project-input-wrapper input::placeholder {
+    color: #a1aab8;
+}
+
+
+.create-project-input-wrapper input:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 3px rgba(99,102,241,.10);
+}
+
+
+/* =========================================================
+   TEXTAREA
+   ========================================================= */
+
+.create-project-textarea-wrapper {
+    position: relative;
+}
+
+
+.create-project-textarea-wrapper i {
+    position: absolute;
+
+    top: 14px;
+    left: 13px;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    pointer-events: none;
+}
+
+
+.create-project-textarea-wrapper textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px 13px 12px 38px;
+
+    resize: vertical;
+
+    min-height: 120px;
+
+    border:
+        1px solid #d9e1ea;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #1f2937;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    transition:
+        border-color .15s ease,
+        box-shadow .15s ease;
+}
+
+
+.create-project-textarea-wrapper textarea::placeholder {
+    color: #a1aab8;
+}
+
+
+.create-project-textarea-wrapper textarea:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 3px rgba(99,102,241,.10);
+}
+
+
+/* =========================================================
+   FIELD HELP TEXT
+   ========================================================= */
+
+.create-project-field small {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   MEMBERS CONTAINER
+   ========================================================= */
+
+.create-project-members-container {
+    overflow: hidden;
+
+    border:
+        1px solid #dce3ec;
+
+    border-radius: 10px;
+
+    background: #f8fafc;
+}
+
+
+/* =========================================================
+   MEMBERS TOP BAR
+   ========================================================= */
+
+.create-project-members-top {
+    min-height: 45px;
+
+    padding: 0 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid #e2e8f0;
+
+    background: #ffffff;
+
+    color: #475569;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+.selected-count {
+    padding: 4px 9px;
+
+    border-radius: 20px;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   MEMBERS LIST
+   ========================================================= */
+
+.create-project-members-list {
+    max-height: 330px;
+
+    overflow-y: auto;
+
+    padding: 9px;
+}
+
+
+/* Scrollbar */
+
+.create-project-members-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+.create-project-members-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.create-project-members-list::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+
+    background: #cbd5e1;
+}
+
+
+/* =========================================================
+   MEMBER ROW
+   ========================================================= */
+
+.create-project-member {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    min-height: 58px;
+
+    margin-bottom: 6px;
+    padding: 8px 11px;
+
+    border:
+        1px solid transparent;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    cursor: pointer;
+
+    transition:
+        background .15s ease,
+        border-color .15s ease,
+        box-shadow .15s ease;
+}
+
+
+.create-project-member:last-child {
+    margin-bottom: 0;
+}
+
+
+.create-project-member:hover {
+    border-color: #d9defd;
+
+    background: #fafaff;
+}
+
+
+.create-project-member.selected {
+    border-color: #c7d2fe;
+
+    background: #f5f7ff;
+
+    box-shadow:
+        inset 3px 0 0 #6366f1;
+}
+
+
+/* Hide actual checkbox */
+
+.create-project-member input {
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CUSTOM CHECKBOX
+   ========================================================= */
+
+.member-checkbox {
+    width: 19px;
+    height: 19px;
+    min-width: 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid #cbd5e1;
+
+    border-radius: 5px;
+
+    background: #ffffff;
+
+    color: #ffffff;
+
+    transition:
+        background .15s ease,
+        border-color .15s ease;
+}
+
+
+.create-project-member.selected .member-checkbox {
+    border-color: #6366f1;
+
+    background: #6366f1;
+}
+
+
+.member-checkbox i {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   MEMBER AVATAR
+   ========================================================= */
+
+.member-avatar {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   MEMBER INFORMATION
+   ========================================================= */
+
+.member-information {
+    min-width: 0;
+
+    flex: 1;
+}
+
+
+.member-information strong {
+    display: block;
+
+    color: #1f2937;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.member-information small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   MEMBER ROLE
+   ========================================================= */
+
+.member-role {
+    flex-shrink: 0;
+
+    padding: 5px 8px;
+
+    border-radius: 20px;
+
+    background: #f1f5f9;
+
+    color: #64748b;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   NO EMPLOYEES
+   ========================================================= */
+
+.create-project-no-employees {
+    min-height: 160px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: #94a3b8;
+
+    text-align: center;
+}
+
+
+.create-project-no-employees i {
+    margin-bottom: 9px;
+
+    font-size: 25px;
+}
+
+
+.create-project-no-employees p {
+    margin: 0;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.create-project-actions {
+    min-height: 72px;
+
+    padding: 14px 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    border-top:
+        1px solid #e5eaf0;
+
+    background: #fafbfc;
+}
+
+
+/* Cancel */
+
+.create-project-cancel {
+    min-height: 37px;
+
+    padding: 0 15px;
+
+    border:
+        1px solid #d9e1ea;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #64748b;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background .15s ease,
+        border-color .15s ease,
+        color .15s ease;
+}
+
+
+.create-project-cancel:hover {
+    border-color: #cbd5e1;
+
+    background: #f8fafc;
+
+    color: #334155;
+}
+
+
+.create-project-cancel:disabled {
+    opacity: .6;
+
+    cursor: not-allowed;
+}
+
+
+/* Create */
+
+.create-project-submit {
+    min-height: 37px;
+
+    padding: 0 16px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border:
+        1px solid #4f46e5;
+
+    border-radius: 8px;
+
+    background: #4f46e5;
+
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background .15s ease,
+        border-color .15s ease,
+        transform .15s ease,
+        box-shadow .15s ease;
+}
+
+
+.create-project-submit:hover:not(:disabled) {
+    border-color: #4338ca;
+
+    background: #4338ca;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 13px rgba(79,70,229,.20);
+}
+
+
+.create-project-submit:disabled {
+    opacity: .7;
+
+    cursor: not-allowed;
+}
+
+
+.create-project-submit .spinner-border {
+    width: 13px;
+    height: 13px;
+}
+
+
+/* =========================================================
+   DARK THEME
+   ========================================================= */
+
+[data-theme="dark"] .create-project-card {
+    background: #111827;
+
+    border-color: #2d3b52;
+
+    box-shadow:
+        0 7px 20px rgba(0,0,0,.15);
+}
+
+
+[data-theme="dark"] .create-project-section {
+    border-bottom-color: #2d3b52;
+}
+
+
+[data-theme="dark"] .create-project-section-header h3 {
+    color: #f8fafc;
+}
+
+
+[data-theme="dark"] .create-project-section-header p {
+    color: #8fa0b8;
+}
+
+
+[data-theme="dark"] .create-project-field label {
+    color: #cbd5e1;
+}
+
+
+[data-theme="dark"] .create-project-input-wrapper input,
+[data-theme="dark"] .create-project-textarea-wrapper textarea {
+    background: #172033;
+
+    border-color: #33445f;
+
+    color: #f1f5f9;
+}
+
+
+[data-theme="dark"] .create-project-input-wrapper input::placeholder,
+[data-theme="dark"] .create-project-textarea-wrapper textarea::placeholder {
+    color: #718096;
+}
+
+
+[data-theme="dark"] .create-project-input-wrapper input:focus,
+[data-theme="dark"] .create-project-textarea-wrapper textarea:focus {
+    border-color: #818cf8;
+
+    box-shadow:
+        0 0 0 3px rgba(129,140,248,.13);
+}
+
+
+[data-theme="dark"] .create-project-input-wrapper i,
+[data-theme="dark"] .create-project-textarea-wrapper i {
+    color: #8190a8;
+}
+
+
+[data-theme="dark"] .create-project-field small {
+    color: #718096;
+}
+
+
+/* Members */
+
+[data-theme="dark"] .create-project-members-container {
+    background: #0f172a;
+
+    border-color: #2d3b52;
+}
+
+
+[data-theme="dark"] .create-project-members-top {
+    background: #172033;
+
+    border-bottom-color: #2d3b52;
+
+    color: #a5b4c8;
+}
+
+
+[data-theme="dark"] .selected-count {
+    background: rgba(79,70,229,.18);
+
+    color: #a5b4fc;
+}
+
+
+[data-theme="dark"] .create-project-member {
+    background: #111827;
+}
+
+
+[data-theme="dark"] .create-project-member:hover {
+    background: #151f32;
+
+    border-color: #33445f;
+}
+
+
+[data-theme="dark"] .create-project-member.selected {
+    background: rgba(79,70,229,.10);
+
+    border-color: #4c5aa0;
+}
+
+
+[data-theme="dark"] .member-checkbox {
+    background: #172033;
+
+    border-color: #475569;
+}
+
+
+[data-theme="dark"] .create-project-member.selected .member-checkbox {
+    background: #6366f1;
+
+    border-color: #6366f1;
+}
+
+
+[data-theme="dark"] .member-avatar {
+    background: rgba(79,70,229,.18);
+
+    color: #a5b4fc;
+}
+
+
+[data-theme="dark"] .member-information strong {
+    color: #f1f5f9;
+}
+
+
+[data-theme="dark"] .member-information small {
+    color: #718096;
+}
+
+
+[data-theme="dark"] .member-role {
+    background: #1e293b;
+
+    color: #94a3b8;
+}
+
+
+[data-theme="dark"] .create-project-members-list::-webkit-scrollbar-thumb {
+    background: #475569;
+}
+
+
+/* Actions */
+
+[data-theme="dark"] .create-project-actions {
+    background: #0f172a;
+
+    border-top-color: #2d3b52;
+}
+
+
+[data-theme="dark"] .create-project-cancel {
+    background: #172033;
+
+    border-color: #33445f;
+
+    color: #a5b4c8;
+}
+
+
+[data-theme="dark"] .create-project-cancel:hover {
+    background: #1e293b;
+
+    border-color: #475569;
+
+    color: #f1f5f9;
+}
+
+
+/* Alerts */
+
+[data-theme="dark"] .create-project-alert.error {
+    background: rgba(239,68,68,.10);
+
+    border-color: rgba(248,113,113,.24);
+
+    color: #fb7185;
+}
+
+
+[data-theme="dark"] .create-project-alert.success {
+    background: rgba(16,185,129,.10);
+
+    border-color: rgba(52,211,153,.22);
+
+    color: #6ee7b7;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .create-project-fields {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .create-project-page {
+        padding: 20px 16px 35px;
+    }
+
+
+    .create-project-header {
+        min-height: 125px;
+
+        padding: 20px;
+
+        align-items: flex-start;
+    }
+
+
+    .create-project-header h2 {
+        font-size: 25px;
+    }
+
+
+    .create-project-section {
+        padding: 20px 18px;
+    }
+
+
+    .create-project-actions {
+        padding: 14px 18px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .create-project-page {
+        padding: 16px 12px 30px;
+    }
+
+
+    .create-project-header {
+        min-height: 115px;
+
+        padding: 17px;
+
+        border-radius: 13px;
+    }
+
+
+    .create-project-header h2 {
+        font-size: 22px;
+    }
+
+
+    .create-project-header p {
+        font-size: 11px;
+    }
+
+
+    .create-project-section {
+        padding: 18px 15px;
+    }
+
+
+    .create-project-section-header {
+        align-items: flex-start;
+    }
+
+
+    .create-project-section-icon {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+    }
+
+
+    .create-project-actions {
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+    }
+
+
+    .create-project-cancel,
+    .create-project-submit {
+        width: 100%;
+    }
+
+
+    .member-role {
+        display: none;
+    }
+
+}
+
+/* =========================================================
+   FINAL COMPACT PROJECT FORM DESIGN
+   Appended overrides - preserves existing JSX/classes
+   ========================================================= */
+
+.create-project-page {
+    max-width: 1180px;
+    padding: 24px 22px 40px;
+}
+
+/* Compact gradient header */
+.create-project-header {
+    min-height: 92px;
+    margin-bottom: 16px;
+    padding: 18px 26px;
+    border-radius: 15px;
+}
+
+.create-project-header h2 {
+    font-size: 26px;
+}
+
+.create-project-header p {
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.create-project-back {
+    margin-bottom: 6px;
+    font-size: 10px;
+}
+
+/* Main card */
+.create-project-card {
+    border-radius: 13px;
+}
+
+/* Sections */
+.create-project-section {
+    padding: 20px 22px;
+}
+
+.create-project-section-header {
+    gap: 10px;
+    margin-bottom: 17px;
+}
+
+.create-project-section-icon {
+    width: 39px;
+    height: 39px;
+    min-width: 39px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.create-project-section-header h3 {
+    font-size: 15px;
+}
+
+.create-project-section-header p {
+    font-size: 10px;
+    margin-top: 3px;
+}
+
+/* Form fields */
+.create-project-fields {
+    gap: 20px;
+}
+
+.create-project-field label {
+    font-size: 10px;
+    margin-bottom: 6px;
+}
+
+.create-project-input-wrapper input {
+    min-height: 40px;
+    padding-left: 35px;
+    font-size: 11px;
+}
+
+.create-project-textarea-wrapper textarea {
+    min-height: 100px;
+    padding-left: 35px;
+    font-size: 11px;
+}
+
+.create-project-field small {
+    margin-top: 5px;
+    font-size: 9px;
+}
+
+/* Members */
+.create-project-members-container {
+    border-radius: 9px;
+}
+
+.create-project-members-top {
+    min-height: 42px;
+    padding: 0 12px;
+    font-size: 10px;
+}
+
+.selected-count {
+    padding: 4px 8px;
+    font-size: 9px;
+}
+
+.create-project-members-list {
+    max-height: 220px;
+    padding: 7px;
+}
+
+.create-project-member {
+    min-height: 50px;
+    margin-bottom: 5px;
+    padding: 7px 9px;
+    gap: 9px;
+}
+
+.member-checkbox {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+}
+
+.member-avatar {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    border-radius: 50%;
+    font-size: 11px;
+}
+
+.member-information strong {
+    font-size: 11px;
+}
+
+.member-information small {
+    font-size: 9px;
+}
+
+.member-role {
+    padding: 4px 8px;
+    font-size: 8px;
+}
+
+/* Bottom actions */
+.create-project-actions {
+    min-height: 62px;
+    padding: 11px 22px;
+}
+
+.create-project-cancel,
+.create-project-submit {
+    min-height: 36px;
+    font-size: 10px;
+}
+
+.create-project-submit {
+    padding: 0 16px;
+    background: linear-gradient(135deg, #4f46e5, #6338e8);
+}
+
+/* =========================================================
+   DARK THEME - exact compact dashboard treatment
+   ========================================================= */
+
+[data-theme="dark"] .create-project-header,
+.dark-theme .create-project-header,
+body.dark .create-project-header,
+body.dark-theme .create-project-header {
+    box-shadow: 0 12px 28px rgba(0,0,0,.18);
+}
+
+[data-theme="dark"] .create-project-card,
+.dark-theme .create-project-card,
+body.dark .create-project-card,
+body.dark-theme .create-project-card {
+    background: #111827;
+    border-color: #2d3b52;
+}
+
+[data-theme="dark"] .create-project-section,
+.dark-theme .create-project-section,
+body.dark .create-project-section,
+body.dark-theme .create-project-section {
+    border-bottom-color: #2d3b52;
+}
+
+[data-theme="dark"] .create-project-input-wrapper input,
+[data-theme="dark"] .create-project-textarea-wrapper textarea,
+.dark-theme .create-project-input-wrapper input,
+.dark-theme .create-project-textarea-wrapper textarea,
+body.dark .create-project-input-wrapper input,
+body.dark .create-project-textarea-wrapper textarea,
+body.dark-theme .create-project-input-wrapper input,
+body.dark-theme .create-project-textarea-wrapper textarea {
+    background: #172033;
+    border-color: #33445f;
+    color: #f1f5f9;
+}
+
+[data-theme="dark"] .create-project-members-container,
+.dark-theme .create-project-members-container,
+body.dark .create-project-members-container,
+body.dark-theme .create-project-members-container {
+    background: #0f172a;
+    border-color: #2d3b52;
+}
+
+[data-theme="dark"] .create-project-members-top,
+.dark-theme .create-project-members-top,
+body.dark .create-project-members-top,
+body.dark-theme .create-project-members-top {
+    background: #172033;
+    border-bottom-color: #2d3b52;
+    color: #a5b4c8;
+}
+
+[data-theme="dark"] .create-project-member,
+.dark-theme .create-project-member,
+body.dark .create-project-member,
+body.dark-theme .create-project-member {
+    background: #111827;
+}
+
+[data-theme="dark"] .create-project-member.selected,
+.dark-theme .create-project-member.selected,
+body.dark .create-project-member.selected,
+body.dark-theme .create-project-member.selected {
+    background: rgba(79,70,229,.10);
+    border-color: #4c5aa0;
+}
+
+[data-theme="dark"] .create-project-actions,
+.dark-theme .create-project-actions,
+body.dark .create-project-actions,
+body.dark-theme .create-project-actions {
+    background: #0f172a;
+    border-top-color: #2d3b52;
+}
+
+[data-theme="dark"] .create-project-cancel,
+.dark-theme .create-project-cancel,
+body.dark .create-project-cancel,
+body.dark-theme .create-project-cancel {
+    background: #172033;
+    border-color: #33445f;
+    color: #a5b4c8;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .create-project-page {
+        padding: 18px 14px 30px;
+    }
+
+    .create-project-header {
+        min-height: 105px;
+        padding: 18px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .create-project-page {
+        padding: 14px 10px 25px;
+    }
+
+    .create-project-header {
+        min-height: 105px;
+        padding: 16px;
+    }
+}
+
+
+/* =========================================================
+   SEARCHABLE MEMBER DROPDOWN
+   ========================================================= */
+
+.create-project-members-container {
+    position: relative;
+    overflow: visible;
+    background: transparent;
+    border: 0;
+}
+
+.create-project-members-select {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border: 1px solid #d9e1ea;
+    border-radius: 9px;
+    background: #fff;
+    color: #334155;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .15s ease;
+}
+
+.create-project-members-select:hover,
+.create-project-members-select.open {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99,102,241,.08);
+}
+
+.members-select-left {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+}
+
+.members-select-left > i {
+    color: #6366f1;
+    font-size: 14px;
+}
+
+.create-project-members-select > i {
+    color: #64748b;
+    font-size: 11px;
+}
+
+.create-project-selected-members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 9px 0 0;
+}
+
+.selected-member-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    max-width: 220px;
+    padding: 4px 6px 4px 5px;
+    border: 1px solid #d9defd;
+    border-radius: 20px;
+    background: #f5f7ff;
+    color: #334155;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.selected-member-avatar {
+    width: 21px;
+    height: 21px;
+    min-width: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #4f46e5;
+    color: #fff;
+    font-size: 8px;
+}
+
+.selected-member-chip > span:not(.selected-member-avatar) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.selected-member-chip button {
+    width: 19px;
+    height: 19px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.selected-member-chip button:hover {
+    background: #e5e7eb;
+    color: #ef4444;
+}
+
+.create-project-members-dropdown {
+    position: absolute;
+    z-index: 50;
+    top: calc(100% + 7px);
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    border: 1px solid #d9e1ea;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow:
+        0 14px 35px rgba(15,23,42,.14),
+        0 3px 10px rgba(15,23,42,.06);
+}
+
+.create-project-members-dropdown-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.create-project-members-dropdown-search > i {
+    position: absolute;
+    left: 12px;
+    color: #94a3b8;
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.create-project-members-dropdown-search input {
+    width: 100%;
+    height: 38px;
+    box-sizing: border-box;
+    padding: 0 34px;
+    border: 1px solid #d9e1ea;
+    border-radius: 8px;
+    outline: none;
+    background: #f8fafc;
+    color: #1f2937;
+    font-family: inherit;
+    font-size: 10px;
+}
+
+.create-project-members-dropdown-search input::placeholder {
+    color: #a1aab8;
+}
+
+.create-project-members-dropdown-search input:focus {
+    border-color: #6366f1;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(99,102,241,.08);
+}
+
+.create-project-members-dropdown-search button {
+    position: absolute;
+    right: 9px;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    background: transparent;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.create-project-members-dropdown-search button:hover {
+    color: #ef4444;
+}
+
+.create-project-members-dropdown-header {
+    min-height: 38px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #edf0f4;
+    border-bottom: 1px solid #e2e8f0;
+    background: #f8fafc;
+    color: #475569;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.create-project-members-dropdown .create-project-members-list {
+    max-height: 245px;
+    overflow-y: auto;
+    padding: 6px;
+}
+
+.create-project-members-dropdown .create-project-member {
+    min-height: 48px;
+    margin-bottom: 4px;
+}
+
+.create-project-members-dropdown .create-project-member:last-child {
+    margin-bottom: 0;
+}
+
+.create-project-no-search-results {
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    text-align: center;
+}
+
+.create-project-no-search-results i {
+    margin-bottom: 7px;
+    font-size: 20px;
+}
+
+.create-project-no-search-results p {
+    margin: 0;
+    font-size: 10px;
+}
+
+/* Dark theme */
+[data-theme="dark"] .create-project-members-select,
+.dark-theme .create-project-members-select,
+body.dark .create-project-members-select,
+body.dark-theme .create-project-members-select {
+    background: #172033;
+    border-color: #33445f;
+    color: #dbe4f0;
+}
+
+[data-theme="dark"] .create-project-members-select:hover,
+[data-theme="dark"] .create-project-members-select.open,
+.dark-theme .create-project-members-select:hover,
+.dark-theme .create-project-members-select.open,
+body.dark .create-project-members-select:hover,
+body.dark .create-project-members-select.open,
+body.dark-theme .create-project-members-select:hover,
+body.dark-theme .create-project-members-select.open {
+    border-color: #818cf8;
+    box-shadow: 0 0 0 3px rgba(129,140,248,.10);
+}
+
+[data-theme="dark"] .create-project-members-dropdown,
+.dark-theme .create-project-members-dropdown,
+body.dark .create-project-members-dropdown,
+body.dark-theme .create-project-members-dropdown {
+    background: #111827;
+    border-color: #2d3b52;
+    box-shadow: 0 16px 35px rgba(0,0,0,.35);
+}
+
+[data-theme="dark"] .create-project-members-dropdown-search input,
+.dark-theme .create-project-members-dropdown-search input,
+body.dark .create-project-members-dropdown-search input,
+body.dark-theme .create-project-members-dropdown-search input {
+    background: #172033;
+    border-color: #33445f;
+    color: #f1f5f9;
+}
+
+[data-theme="dark"] .create-project-members-dropdown-header,
+.dark-theme .create-project-members-dropdown-header,
+body.dark .create-project-members-dropdown-header,
+body.dark-theme .create-project-members-dropdown-header {
+    background: #172033;
+    border-top-color: #2d3b52;
+    border-bottom-color: #2d3b52;
+    color: #a5b4c8;
+}
+
+[data-theme="dark"] .selected-member-chip,
+.dark-theme .selected-member-chip,
+body.dark .selected-member-chip,
+body.dark-theme .selected-member-chip {
+    background: rgba(79,70,229,.12);
+    border-color: #4c5aa0;
+    color: #dbe4f0;
+}
+
+[data-theme="dark"] .selected-member-chip button:hover,
+.dark-theme .selected-member-chip button:hover,
+body.dark .selected-member-chip button:hover,
+body.dark-theme .selected-member-chip button:hover {
+    background: #1e293b;
+    color: #fb7185;
+}
+
+@media (max-width: 600px) {
+    .create-project-members-dropdown {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        top: auto;
+        bottom: 12px;
+        max-height: 75vh;
+    }
+
+    .create-project-members-dropdown .create-project-members-list {
+        max-height: 45vh;
+    }
+}
+
+/* =========================================================
+   MEMBER DROPDOWN VISIBILITY FIX
+   Keep the dropdown above the rest of the form instead of
+   letting parent cards/sections clip it.
+   ========================================================= */
+
+.create-project-card,
+.create-project-section,
+.create-project-members-container {
+    overflow: visible !important;
+}
+
+.create-project-card {
+    position: relative;
+    z-index: 1;
+}
+
+.create-project-section {
+    position: relative;
+}
+
+.create-project-members-container {
+    position: relative;
+    z-index: 100;
+}
+
+.create-project-members-dropdown {
+    position: absolute !important;
+    z-index: 9999 !important;
+    isolation: isolate;
+    max-height: 365px;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-project-members-dropdown .create-project-members-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: 245px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-width: thin;
+    scrollbar-color: #64748b transparent;
+}
+
+.create-project-members-dropdown .create-project-members-list::-webkit-scrollbar {
+    width: 7px;
+}
+
+.create-project-members-dropdown .create-project-members-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.create-project-members-dropdown .create-project-members-list::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 10px;
+}
+
+.create-project-members-dropdown .create-project-members-list::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* Make every employee row fully visible and clickable. */
+.create-project-members-dropdown .create-project-member {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Light theme: dropdown stays bright and sits above following sections. */
+[data-theme="light"] .create-project-members-dropdown,
+.light-theme .create-project-members-dropdown,
+body.light .create-project-members-dropdown,
+body.light-theme .create-project-members-dropdown {
+    background: #ffffff;
+    border-color: #d9e1ea;
+    box-shadow:
+        0 18px 40px rgba(15, 23, 42, .18),
+        0 5px 14px rgba(15, 23, 42, .10);
+}
+
+/* Dark theme */
+[data-theme="dark"] .create-project-members-dropdown,
+.dark-theme .create-project-members-dropdown,
+body.dark .create-project-members-dropdown,
+body.dark-theme .create-project-members-dropdown {
+    background: #111827;
+    border-color: #33445f;
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, .42),
+        0 5px 14px rgba(0, 0, 0, .25);
+}
+
+[data-theme="dark"] .create-project-members-dropdown .create-project-members-list::-webkit-scrollbar-thumb,
+.dark-theme .create-project-members-dropdown .create-project-members-list::-webkit-scrollbar-thumb,
+body.dark .create-project-members-dropdown .create-project-members-list::-webkit-scrollbar-thumb,
+body.dark-theme .create-project-members-dropdown .create-project-members-list::-webkit-scrollbar-thumb {
+    background: #475569;
+}
+
+[data-theme="dark"] .create-project-members-dropdown .create-project-members-list,
+.dark-theme .create-project-members-dropdown .create-project-members-list,
+body.dark .create-project-members-dropdown .create-project-members-list,
+body.dark-theme .create-project-members-dropdown .create-project-members-list {
+    scrollbar-color: #475569 transparent;
+}
+
+/* On smaller screens the dropdown remains inside the viewport. */
+@media (max-width: 700px) {
+    .create-project-members-dropdown {
+        max-height: 55vh;
+    }
+
+    .create-project-members-dropdown .create-project-members-list {
+        max-height: 32vh !important;
+    }
+}

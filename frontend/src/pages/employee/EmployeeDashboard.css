@@ -1,0 +1,564 @@
+/* =========================================================
+   EMPLOYEE DASHBOARD
+   Cleaned / deduplicated stylesheet
+   - One base layout
+   - One light-theme design
+   - Dark theme through variables/targeted overrides
+   - Responsive rules consolidated
+========================================================= */
+
+:root {
+    --ed-text: #172033;
+    --ed-text-2: #263247;
+    --ed-muted: #718096;
+    --ed-muted-2: #8a94a6;
+    --ed-surface: #ffffff;
+    --ed-surface-2: #f8fafc;
+    --ed-border: #e7eaf0;
+    --ed-border-soft: #edf0f5;
+
+    --ed-header-start: #4f22f5;
+    --ed-header-mid: #7628e8;
+    --ed-header-end: #dc3baa;
+
+    --ed-card-shadow: 0 3px 14px rgba(20, 40, 70, 0.04);
+    --ed-header-shadow: 0 10px 28px rgba(81, 36, 224, 0.16);
+
+    --ed-task-icon-bg: #eef4ff;
+    --ed-task-icon-text: #2563eb;
+
+    --ed-empty-bg: #f1f5f9;
+    --ed-empty-text: #94a3b8;
+
+    --ed-high-bg: #fee2e2;
+    --ed-high-text: #b91c1c;
+    --ed-medium-bg: #fef3c7;
+    --ed-medium-text: #92400e;
+    --ed-low-bg: #dcfce7;
+    --ed-low-text: #166534;
+
+    --ed-pending-bg: #f1f5f9;
+    --ed-pending-text: #475569;
+    --ed-progress-bg: #dbeafe;
+    --ed-progress-text: #1d4ed8;
+    --ed-completed-bg: #dcfce7;
+    --ed-completed-text: #15803d;
+}
+
+[data-theme="dark"] {
+    --ed-text: #f8fafc;
+    --ed-text-2: #f1f5f9;
+    --ed-muted: #7f8da5;
+    --ed-muted-2: #7f8da5;
+    --ed-surface: #111827;
+    --ed-surface-2: #151f32;
+    --ed-border: #2b3950;
+    --ed-border-soft: #2b3950;
+
+    --ed-header-shadow: 0 10px 28px rgba(81, 36, 224, 0.18);
+
+    --ed-task-icon-bg: #29265f;
+    --ed-task-icon-text: #8c7cff;
+
+    --ed-empty-bg: #202a40;
+    --ed-empty-text: #7888a2;
+
+    --ed-high-bg: rgba(239, 68, 68, 0.15);
+    --ed-high-text: #fb7185;
+    --ed-medium-bg: rgba(245, 158, 11, 0.15);
+    --ed-medium-text: #fbbf24;
+    --ed-low-bg: rgba(34, 197, 94, 0.14);
+    --ed-low-text: #4ade80;
+
+    --ed-pending-bg: #202938;
+    --ed-pending-text: #aeb9ca;
+    --ed-progress-bg: rgba(37, 99, 235, 0.18);
+    --ed-progress-text: #60a5fa;
+    --ed-completed-bg: rgba(16, 185, 129, 0.15);
+    --ed-completed-text: #34d399;
+}
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.employee-dashboard-page {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    padding-bottom: 40px;
+    color: var(--ed-text);
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.employee-dashboard-header {
+    position: relative;
+    min-height: 168px;
+    margin-bottom: 16px;
+    padding: 30px 32px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 0 0 15px 15px;
+
+    background:
+        linear-gradient(
+            105deg,
+            var(--ed-header-start) 0%,
+            var(--ed-header-mid) 48%,
+            var(--ed-header-end) 100%
+        );
+
+    box-shadow: var(--ed-header-shadow);
+}
+
+.employee-dashboard-header::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 145px;
+    right: 19%;
+    top: -92px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.075);
+    transform: rotate(7deg);
+    pointer-events: none;
+}
+
+.employee-dashboard-header > div {
+    position: relative;
+    z-index: 1;
+}
+
+.employee-dashboard-header h2 {
+    margin: 0;
+    color: #ffffff !important;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.35px;
+}
+
+.employee-dashboard-header p {
+    margin: 7px 0 0;
+    color: rgba(255, 255, 255, 0.88) !important;
+    font-size: 16px;
+}
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+.employee-dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.employee-stat-card {
+    position: relative;
+    min-height: 108px;
+    padding: 18px 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    background: var(--ed-surface);
+    border: 1px solid var(--ed-border);
+    border-radius: 12px;
+
+    overflow: hidden;
+    box-sizing: border-box;
+    box-shadow: var(--ed-card-shadow);
+}
+
+.employee-stat-card::after {
+    content: "";
+    position: absolute;
+    width: 82px;
+    height: 82px;
+    right: -22px;
+    bottom: -42px;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.employee-stat-card:nth-child(1)::after {
+    background: rgba(124, 58, 237, 0.10);
+}
+
+.employee-stat-card:nth-child(2)::after {
+    background: rgba(37, 99, 235, 0.10);
+}
+
+.employee-stat-card:nth-child(3)::after {
+    background: rgba(245, 158, 11, 0.10);
+}
+
+.employee-stat-card:nth-child(4)::after {
+    background: rgba(16, 185, 129, 0.10);
+}
+
+[data-theme="dark"] .employee-stat-card:nth-child(1)::after {
+    background: rgba(124, 58, 237, 0.22);
+}
+
+[data-theme="dark"] .employee-stat-card:nth-child(2)::after {
+    background: rgba(37, 99, 235, 0.20);
+}
+
+[data-theme="dark"] .employee-stat-card:nth-child(3)::after {
+    background: rgba(245, 158, 11, 0.18);
+}
+
+[data-theme="dark"] .employee-stat-card:nth-child(4)::after {
+    background: rgba(16, 185, 129, 0.18);
+}
+
+.employee-stat-icon {
+    position: relative;
+    z-index: 1;
+
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+    font-size: 19px;
+}
+
+.employee-stat-card > div:last-child {
+    position: relative;
+    z-index: 1;
+}
+
+.employee-stat-card p {
+    margin: 0;
+    color: var(--ed-muted) !important;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.employee-stat-card h3 {
+    margin: 3px 0 0;
+    color: var(--ed-text) !important;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.employee-stat-icon.total {
+    background: #7c3aed;
+    color: #ffffff;
+}
+
+.employee-stat-icon.pending {
+    background: #f59e0b;
+    color: #ffffff;
+}
+
+.employee-stat-icon.progress {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.employee-stat-icon.completed {
+    background: #10b981;
+    color: #ffffff;
+}
+
+/* Keep the darker icon shades used by the existing dark design. */
+[data-theme="dark"] .employee-stat-icon.total {
+    background: #5b2be8;
+}
+
+[data-theme="dark"] .employee-stat-icon.pending {
+    background: #e9951c;
+}
+
+[data-theme="dark"] .employee-stat-icon.progress {
+    background: #2879df;
+}
+
+[data-theme="dark"] .employee-stat-icon.completed {
+    background: #08b88d;
+}
+
+/* =========================================================
+   RECENT TASKS SECTION
+========================================================= */
+
+.employee-dashboard-section {
+    background: var(--ed-surface);
+    border: 1px solid var(--ed-border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--ed-card-shadow);
+}
+
+.employee-section-header {
+    min-height: 64px;
+    padding: 13px 16px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--ed-border-soft);
+}
+
+.employee-section-header h4 {
+    margin: 0;
+    color: var(--ed-text) !important;
+    font-size: 15px;
+    font-weight: 650;
+}
+
+.employee-section-header p {
+    margin: 4px 0 0;
+    color: var(--ed-muted) !important;
+    font-size: 13px;
+}
+
+/* =========================================================
+   TASK ROW
+========================================================= */
+
+.employee-recent-tasks {
+    display: flex;
+    flex-direction: column;
+}
+
+.employee-recent-task {
+    min-height: 66px;
+    padding: 13px 16px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    background: var(--ed-surface);
+    border-bottom: 1px solid var(--ed-border-soft);
+
+    transition: background 0.15s ease;
+}
+
+.employee-recent-task:hover {
+    background: var(--ed-surface-2);
+}
+
+.employee-recent-task:last-child {
+    border-bottom: none;
+}
+
+.employee-recent-task-main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.employee-task-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+    background: var(--ed-task-icon-bg);
+    color: var(--ed-task-icon-text);
+}
+
+.employee-recent-task-main h5 {
+    margin: 0;
+    color: var(--ed-text-2) !important;
+    font-size: 18px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.employee-recent-task-main p {
+    margin: 4px 0 0;
+    color: var(--ed-muted-2) !important;
+    font-size: 14px;
+}
+
+/* =========================================================
+   TASK META
+========================================================= */
+
+.employee-recent-task-meta {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+}
+
+.employee-task-priority,
+.employee-task-status {
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+/* Priority */
+.employee-task-priority.priority-high {
+    background: var(--ed-high-bg);
+    color: var(--ed-high-text);
+}
+
+.employee-task-priority.priority-medium {
+    background: var(--ed-medium-bg);
+    color: var(--ed-medium-text);
+}
+
+.employee-task-priority.priority-low {
+    background: var(--ed-low-bg);
+    color: var(--ed-low-text);
+}
+
+/* Status */
+.employee-task-status.status-pending {
+    background: var(--ed-pending-bg);
+    color: var(--ed-pending-text);
+}
+
+.employee-task-status.status-in-progress {
+    background: var(--ed-progress-bg);
+    color: var(--ed-progress-text);
+}
+
+.employee-task-status.status-completed {
+    background: var(--ed-completed-bg);
+    color: var(--ed-completed-text);
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.employee-dashboard-empty {
+    padding: 60px 20px;
+    text-align: center;
+    background: var(--ed-surface);
+}
+
+.employee-empty-icon {
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: var(--ed-empty-bg);
+    color: var(--ed-empty-text);
+
+    font-size: 40px;
+}
+
+.employee-dashboard-empty h5 {
+    margin: 0;
+    color: var(--ed-text-2) !important;
+    font-size: 20px;
+}
+
+.employee-dashboard-empty p {
+    margin: 7px 0 0;
+    color: var(--ed-empty-text) !important;
+    font-size: 20px;
+}
+
+/* =========================================================
+   DARK THEME — ONLY DIFFERENCES FROM LIGHT
+========================================================= */
+
+[data-theme="dark"] .employee-stat-card,
+[data-theme="dark"] .employee-dashboard-section {
+    box-shadow: none;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+    .employee-dashboard-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .employee-dashboard-page {
+        width: calc(100% - 32px);
+    }
+
+    .employee-dashboard-header {
+        min-height: 140px;
+        padding: 24px 22px;
+    }
+
+    .employee-dashboard-header h2 {
+        font-size: 30px;
+    }
+
+    .employee-dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .employee-recent-task {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .employee-recent-task-meta {
+        margin-left: 52px;
+    }
+}
+
+@media (max-width: 480px) {
+    .employee-dashboard-page {
+        width: calc(100% - 24px);
+    }
+
+    .employee-dashboard-header {
+        padding: 22px 18px;
+        min-height: 125px;
+    }
+
+    .employee-dashboard-header h2 {
+        font-size: 26px;
+    }
+
+    .employee-dashboard-header p {
+        font-size: 12px;
+    }
+
+    .employee-stat-card {
+        padding: 16px;
+    }
+
+    .employee-dashboard-empty {
+        padding: 48px 16px;
+    }
+}

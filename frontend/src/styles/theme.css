@@ -1,0 +1,502 @@
+/* ============================================================
+   GLOBAL APPLICATION THEME
+============================================================ */
+
+:root {
+
+    color-scheme: light;
+
+    --bg-page: #f6f8fc;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-tertiary: #f1f5f9;
+
+    --text-primary: #172033;
+    --text-secondary: #687386;
+    --text-muted: #94a3b8;
+
+    --border-color: #e5e9f0;
+    --border-strong: #d8dee8;
+
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --primary-soft: #eef2ff;
+
+    --success: #059669;
+    --success-soft: #ecfdf5;
+
+    --warning: #d97706;
+    --warning-soft: #fffbeb;
+
+    --danger: #dc2626;
+    --danger-soft: #fef2f2;
+
+    --info: #2563eb;
+    --info-soft: #eff6ff;
+
+    --overlay: rgba(15, 23, 42, 0.48);
+
+    --shadow-sm:
+        0 2px 8px rgba(15, 23, 42, 0.05);
+
+    --shadow-md:
+        0 10px 30px rgba(15, 23, 42, 0.09);
+
+    --shadow-lg:
+        0 20px 55px rgba(15, 23, 42, 0.16);
+}
+
+
+/* ============================================================
+   DARK THEME
+============================================================ */
+
+[data-theme="dark"] {
+
+    color-scheme: dark;
+
+    --bg-page: #0b1120;
+    --bg-primary: #111827;
+    --bg-secondary: #172033;
+    --bg-tertiary: #1e293b;
+
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+
+    --border-color: #2d3a4f;
+    --border-strong: #3b4a61;
+
+    --primary: #818cf8;
+    --primary-hover: #a5b4fc;
+    --primary-soft: #252553;
+
+    --success: #34d399;
+    --success-soft: #0d2d26;
+
+    --warning: #fbbf24;
+    --warning-soft: #302611;
+
+    --danger: #f87171;
+    --danger-soft: #32171b;
+
+    --info: #60a5fa;
+    --info-soft: #102844;
+
+    --overlay: rgba(2, 6, 23, 0.72);
+
+    --shadow-sm:
+        0 2px 10px rgba(0, 0, 0, 0.24);
+
+    --shadow-md:
+        0 10px 30px rgba(0, 0, 0, 0.30);
+
+    --shadow-lg:
+        0 20px 55px rgba(0, 0, 0, 0.45);
+}
+
+
+/* ============================================================
+   GLOBAL BASE
+============================================================ */
+
+html,
+body,
+#root {
+
+    min-height: 100%;
+
+}
+
+
+html {
+
+    background: var(--bg-page);
+
+}
+
+
+body {
+
+    margin: 0;
+
+    background: var(--bg-page);
+
+    color: var(--text-primary);
+
+    transition:
+        background-color 0.22s ease,
+        color 0.22s ease;
+
+}
+
+
+body,
+button,
+input,
+textarea,
+select {
+
+    font-family: inherit;
+
+}
+
+
+::selection {
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+}
+
+
+/* ============================================================
+   APPLICATION SHELL
+============================================================ */
+
+.app-layout,
+.app-layout-body,
+.app-layout-content {
+
+    background: var(--bg-page);
+
+    color: var(--text-primary);
+
+}
+
+
+/* ============================================================
+   DARK MODE - COMMON TEXT
+============================================================ */
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] strong,
+[data-theme="dark"] label {
+
+    color: var(--text-primary);
+
+}
+
+
+[data-theme="dark"] p,
+[data-theme="dark"] small {
+
+    color: var(--text-secondary);
+
+}
+
+
+/* ============================================================
+   DARK MODE - CARDS
+============================================================ */
+
+[data-theme="dark"] [class*="-card"],
+[data-theme="dark"] .card,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .dashboard-card {
+
+    background: var(--bg-primary) !important;
+
+    border-color: var(--border-color) !important;
+
+    color: var(--text-primary) !important;
+
+    box-shadow: var(--shadow-sm);
+
+}
+
+
+/* ============================================================
+   DARK MODE - TABLES
+============================================================ */
+
+[data-theme="dark"] table {
+
+    color: var(--text-primary);
+
+}
+
+
+[data-theme="dark"] table thead {
+
+    background: var(--bg-secondary) !important;
+
+}
+
+
+[data-theme="dark"] table th {
+
+    color: var(--text-muted) !important;
+
+    border-color: var(--border-color) !important;
+
+}
+
+
+[data-theme="dark"] table td {
+
+    color: var(--text-secondary) !important;
+
+    border-color: var(--border-color) !important;
+
+}
+
+
+[data-theme="dark"] table tbody tr:hover {
+
+    background: var(--bg-secondary) !important;
+
+}
+
+
+/* ============================================================
+   DARK MODE - FORMS
+============================================================ */
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select,
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+
+    background-color: var(--bg-secondary) !important;
+
+    border-color: var(--border-strong) !important;
+
+    color: var(--text-primary) !important;
+
+}
+
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+
+    color: #718096 !important;
+
+}
+
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus {
+
+    background-color: var(--bg-secondary) !important;
+
+    border-color: var(--primary) !important;
+
+    color: var(--text-primary) !important;
+
+    box-shadow:
+        0 0 0 3px rgba(129, 140, 248, 0.14) !important;
+
+}
+
+
+[data-theme="dark"] option {
+
+    background: var(--bg-secondary);
+
+    color: var(--text-primary);
+
+}
+
+
+/* ============================================================
+   DARK MODE - MODALS
+============================================================ */
+
+[data-theme="dark"] .task-modal-overlay,
+[data-theme="dark"] .my-task-modal-overlay {
+
+    background: var(--overlay) !important;
+
+}
+
+
+[data-theme="dark"] .task-modal,
+[data-theme="dark"] .my-task-modal {
+
+    background: var(--bg-primary) !important;
+
+    border-color: var(--border-color) !important;
+
+    color: var(--text-primary) !important;
+
+    box-shadow: var(--shadow-lg);
+
+}
+
+
+[data-theme="dark"] .task-modal-header,
+[data-theme="dark"] .task-modal-footer,
+[data-theme="dark"] .my-task-modal-header,
+[data-theme="dark"] .my-task-modal-footer {
+
+    background: var(--bg-primary) !important;
+
+    border-color: var(--border-color) !important;
+
+}
+
+
+[data-theme="dark"] .task-modal-body,
+[data-theme="dark"] .my-task-modal-body {
+
+    background: var(--bg-secondary) !important;
+
+}
+
+
+/* ============================================================
+   DARK MODE - COMMENTS
+============================================================ */
+
+[data-theme="dark"] .admin-task-comment,
+[data-theme="dark"] .my-task-comment {
+
+    background: var(--bg-secondary) !important;
+
+    border-color: var(--border-color) !important;
+
+}
+
+
+[data-theme="dark"] .admin-task-comment-content p,
+[data-theme="dark"] .my-task-comment-content p {
+
+    color: var(--text-secondary) !important;
+
+}
+
+
+/* ============================================================
+   DARK MODE - ALERTS
+============================================================ */
+
+[data-theme="dark"] .tasks-alert,
+[data-theme="dark"] .task-modal-error,
+[data-theme="dark"] .admin-task-comment-alert.error {
+
+    background: var(--danger-soft) !important;
+
+    border-color: #71333a !important;
+
+    color: var(--danger) !important;
+
+}
+
+
+[data-theme="dark"] .admin-task-comment-alert.success,
+[data-theme="dark"] .create-task-alert.success {
+
+    background: var(--success-soft) !important;
+
+    border-color: #1d5b4b !important;
+
+    color: var(--success) !important;
+
+}
+
+
+/* ============================================================
+   DARK MODE - STATUS BADGES
+============================================================ */
+
+[data-theme="dark"] .status-pending {
+
+    background: #302b1c !important;
+
+    color: #fbbf24 !important;
+
+}
+
+
+[data-theme="dark"] .status-in-progress {
+
+    background: var(--info-soft) !important;
+
+    color: var(--info) !important;
+
+}
+
+
+[data-theme="dark"] .status-completed,
+[data-theme="dark"] .status-active {
+
+    background: var(--success-soft) !important;
+
+    color: var(--success) !important;
+
+}
+
+
+[data-theme="dark"] .status-inactive {
+
+    background: var(--danger-soft) !important;
+
+    color: var(--danger) !important;
+
+}
+
+
+/* ============================================================
+   DARK MODE - PRIORITY
+============================================================ */
+
+[data-theme="dark"] .priority-low {
+
+    background: var(--success-soft) !important;
+
+    color: var(--success) !important;
+
+}
+
+
+[data-theme="dark"] .priority-medium {
+
+    background: var(--warning-soft) !important;
+
+    color: var(--warning) !important;
+
+}
+
+
+[data-theme="dark"] .priority-high {
+
+    background: var(--danger-soft) !important;
+
+    color: var(--danger) !important;
+
+}
+
+
+/* ============================================================
+   THEME TRANSITION
+============================================================ */
+
+.app-navbar,
+.app-sidebar,
+.app-layout-content,
+[class*="-page"],
+[class*="-card"],
+.card,
+.task-modal,
+.my-task-modal,
+input,
+textarea,
+select,
+button {
+
+    transition:
+        background-color 0.22s ease,
+        border-color 0.22s ease,
+        color 0.22s ease,
+        box-shadow 0.22s ease;
+
+}

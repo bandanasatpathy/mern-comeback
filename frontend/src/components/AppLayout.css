@@ -1,0 +1,80 @@
+/* ============================================================
+   APPLICATION LAYOUT
+============================================================ */
+
+.app-layout {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--bg-page);
+    color: var(--text-primary);
+}
+
+
+/* ============================================================
+   NAVBAR
+============================================================ */
+
+.app-layout > .app-navbar {
+    flex: 0 0 auto;
+}
+
+
+/* ============================================================
+   SIDEBAR + CONTENT
+============================================================ */
+
+.app-layout-body {
+    flex: 1 1 auto;
+
+    display: flex;
+    align-items: stretch;
+
+    min-width: 0;
+    min-height: calc(100vh - 72px);
+
+    background: var(--bg-page);
+}
+
+
+/* ============================================================
+   PAGE CONTENT
+   Sidebar now occupies its real 205px flex width, so the
+   dashboard can never slide underneath it.
+============================================================ */
+
+.app-layout-content {
+    flex: 1 1 auto;
+
+    width: 0;
+    min-width: 0;
+    max-width: 100%;
+
+    padding: 30px;
+
+    overflow-x: hidden;
+
+    box-sizing: border-box;
+
+    background: var(--bg-page);
+    color: var(--text-primary);
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 768px) {
+
+    .app-layout-body {
+        min-height: calc(100vh - 64px);
+    }
+
+    .app-layout-content {
+        padding: 20px 15px;
+    }
+}

@@ -1,0 +1,158 @@
+.public-navbar {
+    height: 72px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 32px;
+
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+
+    box-shadow: var(--shadow-sm);
+
+    position: relative;
+    z-index: 100;
+}
+
+
+/* =========================
+   BRAND
+========================= */
+
+.public-navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    color: var(--text-primary);
+
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.public-navbar-logo {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: var(--primary-soft);
+    color: var(--primary);
+
+    font-size: 20px;
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.public-navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* About */
+
+.public-navbar-link {
+    border: none;
+    background: transparent;
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    padding: 9px 12px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.public-navbar-link:hover {
+    color: var(--primary);
+    background: var(--primary-soft);
+}
+
+
+/* Theme */
+
+.public-navbar-theme {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.public-navbar-theme:hover {
+    color: var(--primary);
+    background: var(--primary-soft);
+    border-color: var(--primary);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .public-navbar {
+        height: 64px;
+        padding: 0 16px;
+    }
+
+    .public-navbar-brand {
+        font-size: 16px;
+    }
+
+    .public-navbar-logo {
+        width: 34px;
+        height: 34px;
+        font-size: 17px;
+    }
+
+    .public-navbar-actions {
+        gap: 6px;
+    }
+
+    .public-navbar-link {
+        padding: 8px 9px;
+    }
+
+    .public-navbar-theme {
+        width: 36px;
+        height: 36px;
+    }
+}

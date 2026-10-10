@@ -1,0 +1,608 @@
+/* =========================================================
+   PAGE
+========================================================= */
+
+.my-projects-page {
+    width: 100%;
+    min-height: 100%;
+    color: var(--text-primary);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.my-projects-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
+
+    margin-bottom: 28px;
+    padding: 28px 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f22f5 0%,
+            #8b2be2 48%,
+            #df3ca8 100%
+        );
+
+    border-radius: 18px;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 14px 35px rgba(79, 34, 245, 0.22);
+
+    overflow: hidden;
+    position: relative;
+}
+
+
+.my-projects-header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    right: -70px;
+    top: -120px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER CONTENT
+========================================================= */
+
+.my-projects-header-content {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+.my-projects-title-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.16);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    font-size: 25px;
+}
+
+
+.my-projects-header h2 {
+    margin: 0 0 6px;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    color: #ffffff;
+}
+
+
+.my-projects-header p {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: rgba(255, 255, 255, 0.82);
+}
+
+
+/* =========================================================
+   PROJECT COUNT
+========================================================= */
+
+.my-projects-count {
+    min-width: 90px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 18px;
+
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.14);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    position: relative;
+    z-index: 1;
+}
+
+
+.my-projects-count span {
+    font-size: 24px;
+    line-height: 1;
+
+    font-weight: 700;
+
+    color: #ffffff;
+}
+
+
+.my-projects-count small {
+    margin-top: 5px;
+
+    font-size: 11px;
+
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* =========================================================
+   ALERT
+========================================================= */
+
+.my-projects-alert {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 22px;
+    padding: 14px 17px;
+
+    border-radius: 10px;
+
+    background: var(--danger-soft);
+
+    border: 1px solid var(--danger);
+
+    color: var(--danger);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.my-projects-card {
+    width: 100%;
+
+    background: var(--bg-primary);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.my-projects-card-header {
+    padding: 22px 24px;
+
+    border-bottom: 1px solid var(--border-color);
+
+    background: var(--bg-secondary);
+}
+
+
+.my-projects-card-header h3 {
+    margin: 0 0 5px;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    color: var(--text-primary);
+}
+
+
+.my-projects-card-header p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+========================================================= */
+
+.my-projects-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.my-projects-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 850px;
+}
+
+
+.my-projects-table thead {
+    background: var(--bg-tertiary);
+}
+
+
+.my-projects-table th {
+    padding: 15px 18px;
+
+    text-align: left;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+
+    color: var(--text-secondary);
+
+    border-bottom: 1px solid var(--border-color);
+
+    white-space: nowrap;
+}
+
+
+.my-projects-table td {
+    padding: 17px 18px;
+
+    border-bottom: 1px solid var(--border-color);
+
+    color: var(--text-primary);
+
+    vertical-align: middle;
+}
+
+
+.my-projects-table tbody tr {
+    transition:
+        background 0.18s ease;
+}
+
+
+.my-projects-table tbody tr:hover {
+    background: var(--bg-secondary);
+}
+
+
+.my-projects-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   PROJECT NAME
+========================================================= */
+
+.my-project-name {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 180px;
+}
+
+
+.my-project-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: var(--primary-soft);
+
+    color: var(--primary);
+
+    font-size: 17px;
+}
+
+
+.my-project-name strong {
+    display: block;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    color: var(--text-primary);
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.my-project-description {
+    max-width: 330px;
+
+    font-size: 16px;
+    line-height: 1.5;
+
+    color: var(--text-secondary);
+
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   MEMBERS
+========================================================= */
+
+.my-project-members {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--text-secondary);
+
+    font-size: 16px;
+}
+
+
+.my-project-members i {
+    color: var(--primary);
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.my-project-status {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    background: var(--bg-tertiary);
+
+    color: var(--text-secondary);
+
+    font-size: 16px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+.my-project-status.active {
+    background: var(--success-soft);
+    color: var(--success);
+}
+
+
+.my-project-status.completed {
+    background: var(--info-soft);
+    color: var(--info);
+}
+
+
+.my-project-status-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: currentColor;
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.my-project-date {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    font-size: 16px;
+
+    color: var(--text-secondary);
+
+    white-space: nowrap;
+}
+
+
+.my-project-date i {
+    color: var(--text-muted);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.my-projects-empty {
+    min-height: 390px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background: var(--bg-primary);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    box-shadow: var(--shadow-sm);
+}
+
+
+.my-projects-empty-icon {
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 18px;
+
+    border-radius: 50%;
+
+    background: var(--primary-soft);
+
+    color: var(--primary);
+
+    font-size: 28px;
+}
+
+
+.my-projects-empty h3 {
+    margin: 0 0 8px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    color: var(--text-primary);
+}
+
+
+.my-projects-empty p {
+    margin: 0;
+
+    max-width: 420px;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .my-projects-header {
+        padding: 22px;
+    }
+
+
+    .my-projects-header h2 {
+        font-size: 24px;
+    }
+
+
+    .my-projects-title-icon {
+        width: 50px;
+        height: 50px;
+
+        font-size: 21px;
+    }
+
+
+    .my-projects-count {
+        min-width: 70px;
+
+        padding: 10px 13px;
+    }
+
+}
+
+
+@media (max-width: 560px) {
+
+    .my-projects-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .my-projects-count {
+        align-self: flex-start;
+
+        flex-direction: row;
+
+        gap: 7px;
+    }
+
+
+    .my-projects-count small {
+        margin-top: 0;
+    }
+
+
+    .my-projects-card-header {
+        padding: 18px;
+    }
+
+
+    .my-projects-table th,
+    .my-projects-table td {
+        padding: 14px;
+    }
+
+}
