@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 
 const connectDB = require('./config/db');
 connectDB();
@@ -28,6 +28,6 @@ app.use('/auth/tasks', taskRoutes);
 app.use('/auth/users', userRoutes);
 app.use('/auth/taskComments', taskCommentRoutes);
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });
