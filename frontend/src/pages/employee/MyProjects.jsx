@@ -1,7 +1,4 @@
-import React, {
-    useEffect,
-    useState
-} from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -47,20 +44,14 @@ const MyProjects = () => {
        FETCH MY PROJECTS
     ================================================== */
 
-    const fetchProjects = async () => {
-
+    const fetchProjects = useCallback(async () => {
         try {
-
             setLoading(true);
             setError("");
 
-            const response =
-                await getAllProjects(token);
-
+            const response = await getAllProjects(token);
 
             /*
-             * IMPORTANT:
-             *
              * Backend already filters employee projects
              * using Project.members.
              *
@@ -69,31 +60,22 @@ const MyProjects = () => {
 
             setProjects(
                 (response.data || []).filter(
-                    project =>
-                        project.status !== "archived"
+                    project => project.status !== "archived"
                 )
             );
 
-
         } catch (error) {
-
-            console.error(
-                "Failed to fetch projects:",
-                error
-            );
+            console.error("Failed to fetch projects:", error);
 
             setError(
                 error.response?.data?.message ||
                 "Failed to load your projects."
             );
 
-
         } finally {
-
             setLoading(false);
-
         }
-    };
+    }, [token]);
 
 
     /* ==================================================
@@ -101,12 +83,10 @@ const MyProjects = () => {
     ================================================== */
 
     useEffect(() => {
-
         if (token) {
             fetchProjects();
         }
-
-    }, [token,fetchProjects]);
+    }, [token, fetchProjects]);
 
 
     /* ==================================================

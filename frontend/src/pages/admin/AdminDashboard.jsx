@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useCallback  } from "react";
+import React, { useEffect, useState , useCallback  } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 import { useAuth } from "../../context/AuthContext";
@@ -61,13 +61,10 @@ function AdminDashboard() {
        FETCH DASHBOARD DATA
     ===================================================== */
 
-    const fetchDashboardData = async () => {
-
+    const fetchDashboardData = useCallback(async () => {
         try {
-
             setLoading(true);
             setError("");
-
 
             const [
                 employeesResponse,
@@ -75,36 +72,11 @@ function AdminDashboard() {
                 pendingResponse,
                 completedResponse
             ] = await Promise.all([
-
-                getAllEmployees(
-                    1,
-                    100,
-                    token,
-                    true
-                ),
-
-                getAllTasks(
-                    1,
-                    5,
-                    token
-                ),
-
-                getTasksByStatus(
-                    "pending",
-                    1,
-                    1,
-                    token
-                ),
-
-                getTasksByStatus(
-                    "completed",
-                    1,
-                    1,
-                    token
-                )
-
+                getAllEmployees(1, 100, token, true),
+                getAllTasks(1, 5, token),
+                getTasksByStatus("pending", 1, 1, token),
+                getTasksByStatus("completed", 1, 1, token)
             ]);
-
 
             setTotalEmployees(
                 employeesResponse.pagination?.totalEmployees ??
@@ -112,48 +84,31 @@ function AdminDashboard() {
                 0
             );
 
-
             setTotalTasks(
-                tasksResponse.pagination?.totalTasks ??
-                0
+                tasksResponse.pagination?.totalTasks ?? 0
             );
-
 
             setPendingTasks(
-                pendingResponse.pagination?.totalTasks ??
-                0
+                pendingResponse.pagination?.totalTasks ?? 0
             );
-
 
             setCompletedTasks(
-                completedResponse.pagination?.totalTasks ??
-                0
+                completedResponse.pagination?.totalTasks ?? 0
             );
 
-
-            setRecentTasks(
-                tasksResponse.data || []
-            );
-
+            setRecentTasks(tasksResponse.data || []);
 
         } catch (error) {
-
-            console.error(
-                "Failed to load admin dashboard:",
-                error
-            );
+            console.error("Failed to load admin dashboard:", error);
 
             setError(
                 error.response?.data?.message ||
                 "Failed to load dashboard data."
             );
-
         } finally {
-
             setLoading(false);
-
         }
-    };
+    }, [token]);
 
 
     /* =====================================================

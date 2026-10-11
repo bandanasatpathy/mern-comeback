@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -101,25 +101,20 @@ const Tasks = () => {
        FETCH TASKS
     ========================= */
 
-    const fetchTasks = async () => {
-
+    const fetchTasks = useCallback(async () => {
         try {
-
             setLoading(true);
             setError("");
 
             let response;
 
             if (statusFilter === "all") {
-
                 response = await getAllTasks(
                     currentPage,
                     10,
                     token
                 );
-
             } else {
-
                 response = await getTasksByStatus(
                     statusFilter,
                     currentPage,
@@ -140,11 +135,7 @@ const Tasks = () => {
             );
 
         } catch (error) {
-
-            console.error(
-                "Failed to fetch tasks:",
-                error
-            );
+            console.error("Failed to fetch tasks:", error);
 
             setError(
                 error.response?.data?.message ||
@@ -152,11 +143,9 @@ const Tasks = () => {
             );
 
         } finally {
-
             setLoading(false);
-
         }
-    };
+    }, [statusFilter, currentPage, token]);
 
 
     /* =========================
@@ -164,13 +153,10 @@ const Tasks = () => {
     ========================= */
 
     useEffect(() => {
-
         if (token) {
             fetchTasks();
-            fetchTaskDependencies();
         }
-
-    }, [currentPage, statusFilter, token,fetchTasks,fetchTaskDependencies]);
+    }, [token, fetchTasks]);
 
 
     /* =========================
@@ -326,6 +312,25 @@ const Tasks = () => {
        FETCH ACTIVE EMPLOYEES + PROJECTS
     ===================================================== */
 
+    const getProjectEmployees = (projectId) => {
+
+        const project = projects.find(
+            (item) => item._id === projectId
+        );
+
+        if (!project) {
+            return [];
+        }
+
+        return employees.filter((employee) =>
+            project.members?.some(
+                (member) =>
+                    (member?._id || member)?.toString() ===
+                    employee._id.toString()
+            )
+        );
+    };
+
     const fetchTaskDependencies = async () => {
 
         try {
@@ -355,25 +360,6 @@ const Tasks = () => {
         }
     };
 
-
-    const getProjectEmployees = (projectId) => {
-
-        const project = projects.find(
-            (item) => item._id === projectId
-        );
-
-        if (!project) {
-            return [];
-        }
-
-        return employees.filter((employee) =>
-            project.members?.some(
-                (member) =>
-                    (member?._id || member)?.toString() ===
-                    employee._id.toString()
-            )
-        );
-    };
 
 
     /* =====================================================

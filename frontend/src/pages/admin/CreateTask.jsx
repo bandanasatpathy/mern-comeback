@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import Loading from "../../components/Loading";
@@ -33,17 +33,9 @@ const CreateTask = () => {
        FETCH ACTIVE EMPLOYEES + PROJECTS
     ===================================================== */
 
-    useEffect(() => {
-        if (token) {
-            fetchTaskDependencies();
-        }
-    }, [token, fetchTaskDependencies]);
 
-
-    const fetchTaskDependencies = async () => {
-
+    const fetchTaskDependencies = useCallback(async () => {
         try {
-
             setLoading(true);
             setError("");
 
@@ -53,6 +45,7 @@ const CreateTask = () => {
             ]);
 
             setEmployees(employeeResponse.data || []);
+
             setProjects(
                 (projectResponse.data || []).filter(
                     (project) => project.status !== "archived"
@@ -60,11 +53,7 @@ const CreateTask = () => {
             );
 
         } catch (error) {
-
-            console.error(
-                "Failed to load task dependencies:",
-                error
-            );
+            console.error("Failed to load task dependencies:", error);
 
             setError(
                 error.response?.data?.message ||
@@ -72,11 +61,16 @@ const CreateTask = () => {
             );
 
         } finally {
-
             setLoading(false);
-
         }
-    };
+    }, [token]);
+
+
+    useEffect(() => {
+        if (token) {
+            fetchTaskDependencies();
+        }
+    }, [token, fetchTaskDependencies]);
 
 
     const selectedProject = projects.find(

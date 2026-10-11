@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 import { useAuth } from "../../context/AuthContext";
-import Loading from "../../components/Loading";
 
 import {
     getMyTasks,
@@ -24,9 +23,6 @@ const MyTasks = () => {
     ===================================================== */
 
     const [tasks, setTasks] = useState([]);
-
-    const [loading, setLoading] =
-        useState(true);
 
     const [error, setError] =
         useState("");
@@ -92,7 +88,7 @@ const MyTasks = () => {
     const [commentText, setCommentText] =
         useState("");
 
-    const [commentsLoading, setCommentsLoading] =
+    const [commentsLoading] =
         useState(false);
 
     const [commentSubmitting, setCommentSubmitting] =
@@ -109,70 +105,42 @@ const MyTasks = () => {
        FETCH MY TASKS
     ===================================================== */
 
-    const fetchTasks = async () => {
-
+    const fetchTasks = useCallback(async () => {
         if (!token) {
-
-            setError(
-                "Authentication token is missing."
-            );
-
-            setLoading(false);
-
+            setError("Authentication token is missing.");
             return;
         }
 
-
         try {
-
-            setLoading(true);
-
             setError("");
 
-            const response =
-                await getMyTasks(
-                    token,
-                    currentPage,
-                    pageSize
-                );
-
-
-            setTasks(
-                response.data || []
+            const response = await getMyTasks(
+                token,
+                currentPage,
+                pageSize
             );
 
+            setTasks(response.data || []);
 
             setPagination(
                 response.pagination || {
                     page: currentPage,
-                    limit: 10,
+                    limit: pageSize,
                     totalTasks: 0,
                     totalPages: 0
                 }
             );
 
-
         } catch (error) {
-
-            console.error(
-                "Failed to fetch my tasks:",
-                error
-            );
-
+            console.error("Failed to fetch my tasks:", error);
 
             setError(
                 error.response?.data?.message ||
                 error.message ||
                 "Failed to load your tasks."
             );
-
-
-        } finally {
-
-            setLoading(false);
-
         }
-    };
+    }, [token, currentPage, pageSize]);
 
 
     useEffect(() => {
@@ -402,73 +370,73 @@ const MyTasks = () => {
     };
 
     const handleTaskAction = async (task) => {
-    if (!task || !token) {
-        return;
-    }
-
-    setActionLoading(task._id);
-
-    try {
-        const response = await completeTask(
-            task._id,
-            token
-        );
-
-        const updatedTask =
-            response?.data ||
-            response?.task ||
-            task;
-
-        setTasks((previousTasks) =>
-            previousTasks.map((item) =>
-                item._id === task._id
-                    ? {
-                        ...item,
-                        ...updatedTask
-                    }
-                    : item
-            )
-        );
-
-        if (
-            selectedTask &&
-            selectedTask._id === task._id
-        ) {
-            setSelectedTask((previousTask) => ({
-                ...previousTask,
-                ...updatedTask
-            }));
+        if (!task || !token) {
+            return;
         }
 
-        setMessage(
-            task.status === "pending"
-                ? "Task started successfully."
-                : "Task completed successfully."
-        );
+        setActionLoading(task._id);
 
-        await fetchTasks();
+        try {
+            const response = await completeTask(
+                task._id,
+                token
+            );
 
-    } catch (error) {
+            const updatedTask =
+                response?.data ||
+                response?.task ||
+                task;
 
-        console.error(
-            "Failed to update task:",
-            error
-        );
+            setTasks((previousTasks) =>
+                previousTasks.map((item) =>
+                    item._id === task._id
+                        ? {
+                            ...item,
+                            ...updatedTask
+                        }
+                        : item
+                )
+            );
 
-        setMessage(
-            error.response?.data?.message ||
-            error.message ||
-            "Failed to update task."
-        );
+            if (
+                selectedTask &&
+                selectedTask._id === task._id
+            ) {
+                setSelectedTask((previousTask) => ({
+                    ...previousTask,
+                    ...updatedTask
+                }));
+            }
 
-    } finally {
+            setMessage(
+                task.status === "pending"
+                    ? "Task started successfully."
+                    : "Task completed successfully."
+            );
 
-        setActionLoading(null);
+            await fetchTasks();
 
-    }
-};
+        } catch (error) {
 
-        return (
+            console.error(
+                "Failed to update task:",
+                error
+            );
+
+            setMessage(
+                error.response?.data?.message ||
+                error.message ||
+                "Failed to update task."
+            );
+
+        } finally {
+
+            setActionLoading(null);
+
+        }
+    };
+
+    return (
 
         <div className="my-tasks-page">
 
@@ -1137,7 +1105,7 @@ const MyTasks = () => {
         </div>
 
     );
-    
+
 };
 
 

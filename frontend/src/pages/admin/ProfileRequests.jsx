@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 import { useAuth } from "../../context/AuthContext";
@@ -37,24 +37,20 @@ const ProfileRequests = () => {
     // FETCH REQUESTS
     // ========================================
 
-    const fetchRequests = async (clearMessage = true) => {
-
+    const fetchRequests = useCallback(async (clearMessage = true) => {
         if (clearMessage) {
             setMessage("");
             setMessageType("");
         }
 
         try {
-
             setLoading(true);
 
-            const response =
-                await getProfileUpdateRequests(token);
+            const response = await getProfileUpdateRequests(token);
 
             setRequests(response.data || []);
 
         } catch (error) {
-
             console.error(
                 "Failed to fetch profile update requests:",
                 error
@@ -68,11 +64,9 @@ const ProfileRequests = () => {
             setMessageType("error");
 
         } finally {
-
             setLoading(false);
-
         }
-    };
+    }, [token]);
 
 
     // ========================================
@@ -80,13 +74,10 @@ const ProfileRequests = () => {
     // ========================================
 
     useEffect(() => {
-
         if (token) {
             fetchRequests();
         }
-
-    }, [token,fetchRequests]);
-
+    }, [token, fetchRequests]);
 
     // ========================================
     // OPEN MODAL

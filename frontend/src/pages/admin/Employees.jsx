@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -44,57 +44,48 @@ function Employees() {
      Fetch Employees
   ========================= */
 
-  const fetchEmployees = async () => {
-
+const fetchEmployees = useCallback(async () => {
     setLoading(true);
-
     setMessage("");
     setMessageType("");
 
     try {
+        const isActive = activeTab === "active";
 
-      const isActive = activeTab === "active";
+        const response = await getAllEmployees(
+            currentPage,
+            10,
+            token,
+            isActive
+        );
 
-      const response = await getAllEmployees(
-        currentPage,
-        10,
-        token,
-        isActive
-      );
+        setEmployees(response.data || []);
 
-      setEmployees(response.data || []);
-
-      setTotalPages(
-        response.pagination?.totalPages || 1
-      );
+        setTotalPages(
+            response.pagination?.totalPages || 1
+        );
 
     } catch (error) {
+        console.error("Failed to fetch employees:", error);
 
-      console.error(
-        "Failed to fetch employees:",
-        error
-      );
+        setMessage(
+            error.response?.data?.message ||
+            "Failed to load employees."
+        );
 
-      setMessage(
-        error.response?.data?.message ||
-        "Failed to load employees."
-      );
-
-      setMessageType("error");
+        setMessageType("error");
 
     } finally {
-
-      setLoading(false);
-
+        setLoading(false);
     }
-  };
+}, [activeTab, currentPage, token]);
 
 
   useEffect(() => {
 
     fetchEmployees();
 
-  }, [currentPage, activeTab]);
+  }, [currentPage, activeTab,fetchEmployees]);
 
 
   /* =========================

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -41,32 +41,20 @@ function EditEmployee() {
        Fetch employee
     ========================= */
 
-    const fetchEmployee = async () => {
-
+    const fetchEmployee = useCallback(async () => {
         setLoading(true);
-
         setMessage("");
         setMessageType("");
 
         try {
-
-            const response = await getUserById(
-                id,
-                token
-            );
-
+            const response = await getUserById(id, token);
             const employeeData = response.data;
 
             setEmployee(employeeData);
-
             setRole(employeeData.role || "");
 
         } catch (error) {
-
-            console.error(
-                "Failed to fetch employee:",
-                error
-            );
+            console.error("Failed to fetch employee:", error);
 
             setMessage(
                 error.response?.data?.message ||
@@ -76,16 +64,16 @@ function EditEmployee() {
             setMessageType("error");
 
         } finally {
-
             setLoading(false);
-
         }
-    };
+    }, [id, token]);
 
 
     useEffect(() => {
-        fetchEmployee();
-    }, [id, fetchEmployee]);
+        if (id && token) {
+            fetchEmployee();
+        }
+    }, [id, token, fetchEmployee]);
 
 
     /* =========================
@@ -175,8 +163,8 @@ function EditEmployee() {
 
                             <div
                                 className={`alert ${messageType === "success"
-                                        ? "alert-success"
-                                        : "alert-danger"
+                                    ? "alert-success"
+                                    : "alert-danger"
                                     }`}
                             >
                                 {message}

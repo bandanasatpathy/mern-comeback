@@ -1,7 +1,4 @@
-import React, {
-    useEffect,
-    useState
-} from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import {
     useNavigate
@@ -56,45 +53,27 @@ const Projects = () => {
     // FETCH PROJECTS
     // ==================================================
 
-    const fetchProjects = async () => {
-
+    const fetchProjects = useCallback(async () => {
         try {
-
             setLoading(true);
-
             setError("");
 
+            const response = await getAllProjects(token);
 
-            const response =
-                await getAllProjects(token);
-
-
-            setProjects(
-                response.data || []
-            );
-
+            setProjects(response.data || []);
 
         } catch (error) {
-
-            console.error(
-                "Failed to fetch projects:",
-                error
-            );
-
+            console.error("Failed to fetch projects:", error);
 
             setError(
                 error.response?.data?.message ||
                 "Failed to load projects."
             );
 
-
         } finally {
-
             setLoading(false);
-
         }
-
-    };
+    }, [token]);
 
 
     // ==================================================
@@ -102,14 +81,10 @@ const Projects = () => {
     // ==================================================
 
     useEffect(() => {
-
         if (token) {
-
             fetchProjects();
-
         }
-
-    }, [token,fetchProjects]);
+    }, [token, fetchProjects]);
 
 
     // ==================================================

@@ -1,7 +1,4 @@
-import React, {
-    useEffect,
-    useState
-} from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import {
     useNavigate,
@@ -74,47 +71,27 @@ const ProjectDetails = () => {
     // FETCH PROJECT
     // ==================================================
 
-    const fetchProject = async () => {
-
+    const fetchProject = useCallback(async () => {
         try {
-
             setLoading(true);
             setError("");
 
+            const response = await getProjectById(id, token);
 
-            const response =
-                await getProjectById(
-                    id,
-                    token
-                );
-
-
-            setProject(
-                response.data
-            );
-
+            setProject(response.data);
 
         } catch (error) {
-
-            console.error(
-                "Failed to fetch project:",
-                error
-            );
-
+            console.error("Failed to fetch project:", error);
 
             setError(
                 error.response?.data?.message ||
                 "Failed to load project."
             );
 
-
         } finally {
-
             setLoading(false);
-
         }
-
-    };
+    }, [id, token]);
 
 
     // ==================================================
@@ -122,21 +99,10 @@ const ProjectDetails = () => {
     // ==================================================
 
     useEffect(() => {
-
-        if (
-            token &&
-            id
-        ) {
-
+        if (id && token) {
             fetchProject();
-
         }
-
-    }, [
-        token,
-        id,
-        fetchProject
-    ]);
+    }, [id, token, fetchProject]);
 
 
     // ==================================================

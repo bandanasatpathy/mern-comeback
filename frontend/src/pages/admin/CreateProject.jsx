@@ -100,31 +100,22 @@ const CreateProject = () => {
     // FETCH EMPLOYEES
     // ==================================================
 
-    const fetchEmployees = async () => {
-
+    const fetchEmployees = useCallback(async () => {
         try {
-
             setLoadingEmployees(true);
             setError("");
 
-            const response =
-                await getAllEmployees(
-                    1,
-                    100,
-                    token,
-                    true
-                );
-
-            setEmployees(
-                response.data || []
+            const response = await getAllEmployees(
+                1,
+                100,
+                token,
+                true
             );
+
+            setEmployees(response.data || []);
 
         } catch (error) {
-
-            console.error(
-                "Failed to fetch employees:",
-                error
-            );
+            console.error("Failed to fetch employees:", error);
 
             setError(
                 error.response?.data?.message ||
@@ -132,11 +123,9 @@ const CreateProject = () => {
             );
 
         } finally {
-
             setLoadingEmployees(false);
-
         }
-    };
+    }, [token]);
 
 
     // ==================================================
@@ -564,8 +553,8 @@ const CreateProject = () => {
 
                             <i
                                 className={`bi ${membersDropdownOpen
-                                        ? "bi-chevron-up"
-                                        : "bi-chevron-down"
+                                    ? "bi-chevron-up"
+                                    : "bi-chevron-down"
                                     }`}
                             ></i>
                         </button>
@@ -684,8 +673,8 @@ const CreateProject = () => {
                                                     <label
                                                         key={employee._id}
                                                         className={`create-project-member ${isSelected
-                                                                ? "selected"
-                                                                : ""
+                                                            ? "selected"
+                                                            : ""
                                                             }`}
                                                     >
 
