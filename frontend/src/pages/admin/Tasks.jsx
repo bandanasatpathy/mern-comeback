@@ -170,7 +170,7 @@ const Tasks = () => {
             fetchTaskDependencies();
         }
 
-    }, [currentPage, statusFilter, token]);
+    }, [currentPage, statusFilter, token,fetchTasks,fetchTaskDependencies]);
 
 
     /* =========================

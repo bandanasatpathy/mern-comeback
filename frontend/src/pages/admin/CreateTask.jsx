@@ -34,12 +34,10 @@ const CreateTask = () => {
     ===================================================== */
 
     useEffect(() => {
-
         if (token) {
             fetchTaskDependencies();
         }
-
-    }, [token]);
+    }, [token, fetchTaskDependencies]);
 
 
     const fetchTaskDependencies = async () => {

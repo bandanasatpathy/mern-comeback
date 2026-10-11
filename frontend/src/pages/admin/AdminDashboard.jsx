@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useCallback  } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 import { useAuth } from "../../context/AuthContext";
@@ -161,12 +161,10 @@ function AdminDashboard() {
     ===================================================== */
 
     useEffect(() => {
-
         if (token) {
             fetchDashboardData();
         }
-
-    }, [token]);
+    }, [token, fetchDashboardData]);
 
 
     /* =====================================================

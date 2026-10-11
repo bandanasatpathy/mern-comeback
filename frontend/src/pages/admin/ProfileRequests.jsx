@@ -85,7 +85,7 @@ const ProfileRequests = () => {
             fetchRequests();
         }
 
-    }, [token]);
+    }, [token,fetchRequests]);
 
 
     // ========================================

@@ -84,10 +84,8 @@ function EditEmployee() {
 
 
     useEffect(() => {
-
         fetchEmployee();
-
-    }, [id]);
+    }, [id, fetchEmployee]);
 
 
     /* =========================

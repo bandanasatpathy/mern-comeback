@@ -106,7 +106,7 @@ const MyProjects = () => {
             fetchProjects();
         }
 
-    }, [token]);
+    }, [token,fetchProjects]);
 
 
     /* ==================================================

@@ -1,6 +1,7 @@
 import React, {
     useEffect,
-    useState
+    useState,
+    useCallback
 } from "react";
 
 import {
@@ -143,12 +144,10 @@ const CreateProject = () => {
     // ==================================================
 
     useEffect(() => {
-
         if (token) {
             fetchEmployees();
         }
-
-    }, [token]);
+    }, [token, fetchEmployees]);
 
 
     // ==================================================

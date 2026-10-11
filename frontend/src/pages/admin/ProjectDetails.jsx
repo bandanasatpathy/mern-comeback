@@ -134,7 +134,8 @@ const ProjectDetails = () => {
 
     }, [
         token,
-        id
+        id,
+        fetchProject
     ]);
 
 
