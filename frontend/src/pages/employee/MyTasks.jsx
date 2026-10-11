@@ -176,10 +176,8 @@ const MyTasks = () => {
 
 
     useEffect(() => {
-
         fetchTasks();
-
-    }, [currentPage, token, pageSize]);
+    }, [fetchTasks]);
 
 
     /* =====================================================
